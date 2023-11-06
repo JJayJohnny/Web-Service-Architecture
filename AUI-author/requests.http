@@ -1,0 +1,23 @@
+### Get all authors
+GET http://localhost:8082/api/authors
+
+### Get single author
+GET http://localhost:8082/api/authors/b26c7fb7-0422-45e4-8e8e-03dbc772f98c
+
+### Get single author not existing
+GET http://localhost:8082/api/authors/b26c7fb7-0422-45e4-8e8e-03dbc772f98a
+
+### Create new author
+PUT http://localhost:8082/api/authors/b26c7fb7-0422-45e4-8e8e-28dbc772f98c
+Content-Type: application/json
+
+{
+  "name": "Nowy autor",
+  "age": 19
+}
+
+### Delete author
+DELETE http://localhost:8082/api/authors/3c4148e3-d1d7-4841-8b57-96d4b69d78e8
+
+### Delete author not existing
+DELETE http://localhost:8082/api/authors/3c4148e3-d1d7-4841-8b57-96d4b69d78e8
