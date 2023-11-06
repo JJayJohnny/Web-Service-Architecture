@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public interface AuthorEventRepository {
 
-//    void add(UUID id);
+    void add(UUID id);
 
     void delete(UUID id);
 }

@@ -1,0 +1,57 @@
+### Get all books
+GET http://localhost:8081/api/books
+
+### Get single book
+GET http://localhost:8081/api/books/16699753-4300-4482-9959-2e5ab53788c2
+
+### Get single book not existing
+GET http://localhost:8081/api/books/16699753-4300-4482-9959-2e5ab53788c3
+
+### Get author books
+GET http://localhost:8081/api/authors/b26c7fb7-0422-45e4-8e8e-03dbc772f98c/books
+
+### Get author books not existing
+GET http://localhost:8081/api/authors/b26c7fb7-0422-45e4-8e8e-03dbc772f98a/books
+
+### Create new book
+PUT http://localhost:8081/api/books/b26c7fb7-0422-45e4-8e8e-03dbc772f98b
+Content-Type: application/json
+
+{
+  "title": "Nowa ksiazka",
+  "pages": 2222,
+  "author": "b26c7fb7-0422-45e4-8e8e-03dbc772f98c"
+}
+
+### Create new book not existing author
+PUT http://localhost:8081/api/books/b26c7fb7-0422-45e4-8e8e-03dbc772f98b
+Content-Type: application/json
+
+{
+  "title": "Nowa ksiazka",
+  "pages": 2222,
+  "author": "b26c7fb7-0422-45e4-8e8e-03dbc772f98a"
+}
+
+
+### Get author books empty
+GET http://localhost:8081/api/authors/b26c7fb7-0422-45e4-8e8e-28dbc772f98c/books
+
+### Delete book
+DELETE http://localhost:8081/api/books/16699753-4300-4482-9959-2e5ab53788c2
+
+### Delete book not existing
+DELETE http://localhost:8081/api/books/16699753-4300-4482-9959-2e5ab53788c2
+
+### Get new author books
+GET http://localhost:8081/api/authors/b26c7fb7-0422-45e4-8e8e-28dbc772f98c/books
+
+### Create new book to new author
+PUT http://localhost:8081/api/books/b26c7fb7-0422-45e4-8e8e-04dbc772f98b
+Content-Type: application/json
+
+{
+  "title": "Nowa ksiazka2",
+  "pages": 2222,
+  "author": "b26c7fb7-0422-45e4-8e8e-28dbc772f98c"
+}

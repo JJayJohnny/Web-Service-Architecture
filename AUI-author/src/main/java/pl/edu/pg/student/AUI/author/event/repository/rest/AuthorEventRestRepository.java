@@ -16,10 +16,10 @@ public class AuthorEventRestRepository implements AuthorEventRepository {
         this.restTemplate = restTemplate;
     }
 
-//    @Override
-//    public void add(UUID id){
-//        restTemplate.put("/api/authors/{id}", id);
-//    }
+    @Override
+    public void add(UUID id){
+        restTemplate.put("/api/authors/{id}", null, id);
+    }
 
     @Override
     public void delete(UUID id){
