@@ -24,8 +24,6 @@ public class GetBookResponse {
 
         private UUID id;
 
-        private String name;
-
     }
 
     private UUID id;
