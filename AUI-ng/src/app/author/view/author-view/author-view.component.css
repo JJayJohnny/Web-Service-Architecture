@@ -1,0 +1,4 @@
+.authorInfo{
+    display: flex;
+    flex-direction: column;
+}

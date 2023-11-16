@@ -1,0 +1,26 @@
+<div>
+    <header>
+        <h3>Authors</h3>
+    </header>
+
+    <table *ngIf="authors">
+        <thead>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of authors.authors">
+                <td>
+                    <a [routerLink]="['/authors', author.id]">{{author.name}}</a>
+                </td>
+                <td>
+                    <button [routerLink]="['/authors', author.id, 'edit']">Edit</button>
+                </td>
+                <td>
+                    <button (click)="onDelete(author)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
