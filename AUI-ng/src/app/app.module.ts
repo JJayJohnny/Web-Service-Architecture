@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthorService } from './author/service/author.service';
 import { NavComponent } from './component/nav/nav.component';
 import { AuthorViewComponent } from './author/view/author-view/author-view.component';
+import { AuthorAddComponent } from './author/view/author-add/author-add.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { AuthorViewComponent } from './author/view/author-view/author-view.compo
     HeaderComponent,
     AuthorListComponent,
     NavComponent,
-    AuthorViewComponent
+    AuthorViewComponent,
+    AuthorAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     AuthorService

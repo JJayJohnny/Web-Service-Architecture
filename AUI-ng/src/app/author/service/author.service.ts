@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Authors } from '../model/authors';
 import { AuthorDetails } from '../model/author-details';
 import { Author } from '../model/author';
+import { AuthorForm } from '../model/author-form';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class AuthorService {
   
   deleleAuthor(uuid: String): Observable<any>{
     return this.http.delete('/api/authors/'+uuid);
+  }
+
+  putAuthor(uuid: string, author: AuthorForm): Observable<any>{
+    return this.http.put('/api/authors/'+uuid, author);
   }
 }

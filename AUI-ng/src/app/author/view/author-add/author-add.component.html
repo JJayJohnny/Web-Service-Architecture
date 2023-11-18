@@ -1,0 +1,23 @@
+<div>
+    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="formContent">
+            <div>
+                <label for="name">Name: </label>
+                <input name="name" [(ngModel)]="name" required/>
+                <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
+                    Name is required.
+                </div>
+            </div>
+            <div>
+                <label for="age">Age: </label>
+                <input name="age" type="number" [(ngModel)]="age" required/>
+                <div *ngIf="form.controls['age'].invalid && (form.controls['age'].dirty || form.controls['age'].touched)">
+                    Age is required.
+                </div>
+            </div>
+            <div>
+                <button type="submit" [disabled]="form.invalid">Add</button>
+            </div>
+        </div>
+    </form>
+</div>
