@@ -1,4 +1,4 @@
 export interface AuthorForm{
-    name: string;
+    name: String;
     age: number;
 }

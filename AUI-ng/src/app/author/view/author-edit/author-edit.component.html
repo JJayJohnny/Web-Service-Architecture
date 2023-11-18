@@ -1,24 +1,25 @@
-<div>
-    <h2>Add author</h2>
+<div *ngIf="author">
+    <h2>Edit author</h2>
     <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
         <div class="formContent">
             <div>
                 <label for="name">Name: </label>
-                <input name="name" [(ngModel)]="name" required/>
+                <input name="name" [(ngModel)]="author.name" required/>
                 <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
                     Name is required.
                 </div>
             </div>
             <div>
                 <label for="age">Age: </label>
-                <input name="age" type="number" [(ngModel)]="age" required/>
+                <input name="age" type="number" [(ngModel)]="author.age" required/>
                 <div *ngIf="form.controls['age'].invalid && (form.controls['age'].dirty || form.controls['age'].touched)">
                     Age is required.
                 </div>
             </div>
             <div>
-                <button type="submit" [disabled]="form.invalid">Add</button>
+                <button type="submit" [disabled]="form.invalid">Edit</button>
             </div>
         </div>
     </form>
 </div>
+

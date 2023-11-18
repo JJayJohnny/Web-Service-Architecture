@@ -12,6 +12,7 @@ import { AuthorService } from './author/service/author.service';
 import { NavComponent } from './component/nav/nav.component';
 import { AuthorViewComponent } from './author/view/author-view/author-view.component';
 import { AuthorAddComponent } from './author/view/author-add/author-add.component';
+import { AuthorEditComponent } from './author/view/author-edit/author-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthorAddComponent } from './author/view/author-add/author-add.componen
     AuthorListComponent,
     NavComponent,
     AuthorViewComponent,
-    AuthorAddComponent
+    AuthorAddComponent,
+    AuthorEditComponent
   ],
   imports: [
     BrowserModule,
