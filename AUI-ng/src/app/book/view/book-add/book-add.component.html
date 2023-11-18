@@ -1,5 +1,5 @@
 <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <div>
+    <div class="formContent">
         <div>
             <label for="title">Title: </label>
             <input name="title" [(ngModel)]="title" required/>
@@ -13,9 +13,9 @@
             <div *ngIf="form.controls['pages'].invalid && (form.controls['pages'].dirty || form.controls['pages'].touched)">
                 Pages are required.
             </div>
-            <div>
-                <button type="submit" [disabled]="form.invalid">Add</button>
-            </div>
+        </div>
+        <div>
+            <button type="submit" [disabled]="form.invalid">Add</button>
         </div>
     </div>
 </form>

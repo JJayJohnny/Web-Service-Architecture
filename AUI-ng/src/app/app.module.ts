@@ -16,6 +16,7 @@ import { AuthorEditComponent } from './author/view/author-edit/author-edit.compo
 import { BookViewComponent } from './book/view/book-view/book-view.component';
 import { BookAddComponent } from './book/view/book-add/book-add.component';
 import { BookEditComponent } from './book/view/book-edit/book-edit.component';
+import { BookListComponent } from './book/view/book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BookEditComponent } from './book/view/book-edit/book-edit.component';
     BookViewComponent,
     BookAddComponent,
     BookEditComponent,
+    BookListComponent,
   ],
   imports: [
     BrowserModule,

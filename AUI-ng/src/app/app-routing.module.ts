@@ -7,6 +7,7 @@ import { AuthorEditComponent } from './author/view/author-edit/author-edit.compo
 import { BookViewComponent } from './book/view/book-view/book-view.component';
 import { BookEditComponent } from './book/view/book-edit/book-edit.component';
 import { BookAddComponent } from './book/view/book-add/book-add.component';
+import { BookListComponent } from './book/view/book-list/book-list.component';
 
 const routes: Routes = [
   {path: 'authors', component: AuthorListComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'authors/:uuid', component: AuthorViewComponent},
   {path: 'authors/:uuid/edit', component: AuthorEditComponent},
   {path: 'authors/:uuid/addBook', component: BookAddComponent},
+  {path: 'books', component: BookListComponent},
   {path: 'books/:uuid', component: BookViewComponent},
   {path: 'books/:uuid/edit', component: BookEditComponent}
 ];

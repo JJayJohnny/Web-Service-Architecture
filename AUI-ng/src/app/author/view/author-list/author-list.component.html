@@ -1,8 +1,10 @@
-<div>
-    <header>
-        <h3>Authors</h3>
-    </header>
-    <button [routerLink]="['/authors', 'add']">Add author</button>
+<div class="authorList">
+    <div class="authorsHeader">
+        <header>
+            <h3>Authors</h3>
+        </header>
+        <button [routerLink]="['/authors', 'add']">Add author</button>
+    </div>
     <table *ngIf="authors">
         <thead>
             <th>Name</th>

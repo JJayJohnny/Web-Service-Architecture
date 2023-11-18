@@ -1,0 +1,25 @@
+<div>
+    <header>
+        <h3>Books</h3>
+    </header>
+    <table *ngIf="books">
+        <thead>
+            <th>Title</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books.books">
+                <td>
+                    <a [routerLink]="['/books', book.id]">{{book.title}}</a>
+                </td>
+                <td>
+                    <button [routerLink]="['/books', book.id, 'edit']">Edit</button>
+                </td>
+                <td>
+                    <button (click)="onDelete(book)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
