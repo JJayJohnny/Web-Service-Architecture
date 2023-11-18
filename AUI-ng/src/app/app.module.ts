@@ -13,6 +13,9 @@ import { NavComponent } from './component/nav/nav.component';
 import { AuthorViewComponent } from './author/view/author-view/author-view.component';
 import { AuthorAddComponent } from './author/view/author-add/author-add.component';
 import { AuthorEditComponent } from './author/view/author-edit/author-edit.component';
+import { BookViewComponent } from './book/view/book-view/book-view.component';
+import { BookAddComponent } from './book/view/book-add/book-add.component';
+import { BookEditComponent } from './book/view/book-edit/book-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AuthorEditComponent } from './author/view/author-edit/author-edit.compo
     NavComponent,
     AuthorViewComponent,
     AuthorAddComponent,
-    AuthorEditComponent
+    AuthorEditComponent,
+    BookViewComponent,
+    BookAddComponent,
+    BookEditComponent,
   ],
   imports: [
     BrowserModule,

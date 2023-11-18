@@ -1,0 +1,14 @@
+<div *ngIf="book">
+    <div>
+        Id: {{book.id}}
+    </div>
+    <div>
+        Title: {{book.title}}
+    </div>
+    <div>
+        Pages: {{book.pages}}
+    </div>
+    <div *ngIf="author">
+        Author: <a [routerLink]="['/authors', author.id]">{{author.name}}</a>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div>
     <header>
-        <h3>Author info</h3>
+        <h2>Author info</h2>
     </header>
     <div *ngIf="author">
         <div class="authorInfo">
@@ -8,5 +8,23 @@
             <div><b>Name</b>: {{author.name}}</div>
             <div><b>Age</b>: {{author.age}}</div>
         </div>
+        <button [routerLink]="['/authors', author.id, 'addBook']">Add book</button>
+    </div>
+    <h3>Books:</h3>
+    <div *ngIf="books">
+        <table>
+            <thead>
+                <th>Title</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let book of books.books">
+                    <td><a [routerLink]="['/books', book.id]">{{book.title}}</a></td>
+                    <td><button [routerLink]="['/books', book.id, 'edit']">Edit</button></td>
+                    <td><button (click)="onDelete(book)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

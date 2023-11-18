@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Authors } from '../model/authors';
 import { AuthorDetails } from '../model/author-details';
-import { Author } from '../model/author';
 import { AuthorForm } from '../model/author-form';
 
 @Injectable({
@@ -17,7 +16,7 @@ export class AuthorService {
     return this.http.get<Authors>('/api/authors');
   }
 
-  getAuthor(uuid: string): Observable<AuthorDetails>{
+  getAuthor(uuid: String): Observable<AuthorDetails>{
     return this.http.get<AuthorDetails>('/api/authors/'+uuid);
   }
   
