@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  aui-book:
+    build:
+      context: AUI-book/.
+      dockerfile: Dockerfile
+    restart: always
+  
+  aui-author:
+    build:
+      context: AUI-author/.
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      AUI_BOOK_URL: "http://aui-book:8080"
+
+  aui-gateway:
+    build:
+      context: AUI-gateway/.
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      AUI_BOOK_URL: "http://aui-book:8080"
+      AUI_AUTHOR_URL: "http://aui-author:8080"
+      AUI_GATEWAY_HOST: "aui-gateway:8080"
+  
+  aui-ng:
+    build:
+      context: AUI-ng/.
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      API_URL: "http://aui-gateway:8080/api"
+    ports:
+      - "8080:80"
