@@ -3,7 +3,11 @@ call npm i
 call npm run build
 cd ..
 
-set "JAVA_HOME=%USERPROFILE%\.jdks\temurin-17.0.9"
+for /D %%i in (%USERPROFILE%\.jdks\temurin-17*) do (
+    set "JAVA_HOME=%%i"
+    goto :found
+)
+:found
 
 cd AUI-book
 call mvn clean verify
