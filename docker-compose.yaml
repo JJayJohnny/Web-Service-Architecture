@@ -6,6 +6,13 @@ services:
       context: AUI-book/.
       dockerfile: Dockerfile
     restart: always
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-book-db:5432/book_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "user"
+      SPRING_DATASOURCE_PASSWORD: "password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+
   
   aui-author:
     build:
@@ -14,6 +21,11 @@ services:
     restart: always
     environment:
       AUI_BOOK_URL: "http://aui-book:8080"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-author-db:5432/author_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "user"
+      SPRING_DATASOURCE_PASSWORD: "password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
 
   aui-gateway:
     build:
@@ -34,3 +46,26 @@ services:
       API_URL: "http://aui-gateway:8080/api"
     ports:
       - "8080:80"
+
+  aui-book-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "book_db"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    volumes:
+      - book_db_data:/var/lib/postgresql/data
+
+  aui-author-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "author_db"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    volumes:
+      - author_db_data:/var/lib/postgresql/data
+volumes:
+  book_db_data:
+  author_db_data:
