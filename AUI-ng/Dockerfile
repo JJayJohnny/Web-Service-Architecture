@@ -1,4 +1,4 @@
-from nginx:1.23.3
+FROM nginx:1.23.3
 
 ENV VERSION="1.0.0-SNAPSHOT"
 
