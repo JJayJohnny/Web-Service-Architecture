@@ -9,12 +9,28 @@ services:
     ports:
       - "8090:8080"
   
-  aui-book:
+  aui-book-1:
     build:
       context: AUI-book/.
       dockerfile: Dockerfile
     restart: always
     environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+      EUREKA_INSTANCE_INSTANCE_ID: "1"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-book-db:5432/book_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "user"
+      SPRING_DATASOURCE_PASSWORD: "password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+
+  aui-book-2:
+    build:
+      context: AUI-book/.
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+      EUREKA_INSTANCE_INSTANCE_ID: "2"
       SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-book-db:5432/book_db"
       SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
       SPRING_DATASOURCE_USERNAME: "user"
@@ -28,7 +44,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      AUI_BOOK_URL: "http://aui-book:8080"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
       SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-author-db:5432/author_db"
       SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
       SPRING_DATASOURCE_USERNAME: "user"
@@ -41,8 +57,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      AUI_BOOK_URL: "http://aui-book:8080"
-      AUI_AUTHOR_URL: "http://aui-author:8080"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
       AUI_GATEWAY_HOST: "aui-gateway:8080"
   
   aui-ng:
