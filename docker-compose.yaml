@@ -1,6 +1,14 @@
 version: "3"
 
 services:
+  aui-eureka:
+    build:
+      context: AUI-eureka/.
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8090:8080"
+  
   aui-book:
     build:
       context: AUI-book/.

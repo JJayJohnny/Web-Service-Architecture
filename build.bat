@@ -20,3 +20,7 @@ cd ..
 cd AUI-gateway
 call mvn clean verify
 cd ..
+
+cd AUI-eureka
+call mvn clean verify
+cd ..
