@@ -24,3 +24,7 @@ cd ..
 cd AUI-eureka
 call mvn clean verify
 cd ..
+
+cd AUI-config
+call mvn clean verify
+cd ..

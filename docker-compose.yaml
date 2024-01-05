@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  aui-config:
+    build:
+      context: AUI-config/.
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+    volumes:
+      - ./configuration:/var/aui-config/configuration
+
   aui-eureka:
     build:
       context: AUI-eureka/.
@@ -15,13 +25,8 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+      SPRING_CONFIG_IMPORT: "configserver:http://aui-config:8080"
       EUREKA_INSTANCE_INSTANCE_ID: "1"
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-book-db:5432/book_db"
-      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
-      SPRING_DATASOURCE_USERNAME: "user"
-      SPRING_DATASOURCE_PASSWORD: "password"
-      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
 
   aui-book-2:
     build:
@@ -29,13 +34,8 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+      SPRING_CONFIG_IMPORT: "configserver:http://aui-config:8080"
       EUREKA_INSTANCE_INSTANCE_ID: "2"
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-book-db:5432/book_db"
-      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
-      SPRING_DATASOURCE_USERNAME: "user"
-      SPRING_DATASOURCE_PASSWORD: "password"
-      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
 
   
   aui-author:
@@ -44,12 +44,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
-      SPRING_DATASOURCE_URL: "jdbc:postgresql://aui-author-db:5432/author_db"
-      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
-      SPRING_DATASOURCE_USERNAME: "user"
-      SPRING_DATASOURCE_PASSWORD: "password"
-      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+      SPRING_CONFIG_IMPORT: "configserver:http://aui-config:8080"
 
   aui-gateway:
     build:
@@ -57,7 +52,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://aui-eureka:8080/eureka"
+      SPRING_CONFIG_IMPORT: "configserver:http://aui-config:8080"
       AUI_GATEWAY_HOST: "aui-gateway:8080"
   
   aui-ng:
